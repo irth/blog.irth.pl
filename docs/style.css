@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:200,300,300i,400,400i&subset=latin-ext');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.col.push_1_of_6 {
+  	margin-left: 16.93% !important;
+}
+
+.col.push_2_of_6 {
+  	margin-left: 33.85% !important;
+}
+
+#sideWrapper {
+    position: fixed;
+    top: 10vh;
+    margin-top: 0;
+}
+
+#side {
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+    text-align: right;
+    padding-right: 1em;
+    text-transform: uppercase;
+    border-right: solid 1px #888;
+    height: 65vh;
+}
+
+.col {
+    margin-top: 10vh;
+}
+
+@media only screen and (max-width: 960px) {
+    #sideWrapper {
+        position: initial;
+    }
+
+    #page {
+        text-align: center;
+    }
+    .col {
+        margin-top: 0;
+    }
+
+	.col.push_1_of_6,
+    .col.push_2_of_6 { 
+		margin-left: 0% !important;
+	}
+
+    #side {
+        text-align: center;
+        padding: 0;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        max-width: 512px;
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: solid 1px #888;
+        border-right: none;
+        height: auto;
+    }
+
+    .post-title,
+    .post-meta,
+    .post-content h1, .post-content h2 {
+        text-align: center;
+    }
+
+    .post-content {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
+
+
+.avatar {
+    max-width: 100%;
+    margin-bottom: 1em;
+}
+
+.title,
+.post-title a,
+.section-title {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #444;
+    font-size: 200%;
+    font-weight: 200;
+}
+
+#side a {
+    text-decoration: none;
+    font-size: 120%;
+    color: #333;
+    font-weight: 200;
+}
+
+.post-content a {
+    color: #444;
+}
+
+.post-content a:hover {
+    color: #000;
+}
+
+#side a.title {
+    display: block;
+    font-size: 225%;
+    padding-bottom: .5rem;
+}
+
+#side a:hover,
+.title:hover,
+.post-title a:hover {
+    color: #000;
+}
+
+.post-title {
+    padding-bottom: .5em;
+}
+
+#pagination,
+.post-meta {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 70%;
+    font-style: oblique;
+}
+
+#pagination a,
+#pagination span,
+.post-meta span,
+.post-meta a {
+    color: #555;
+}
+
+.post-meta,
+.post-content {
+    padding-left: .5rem;
+}
+
+.post-content {
+    text-align: justify;
+}
+
+#pagination {
+    margin-top: 1rem;
+}
+
+.post-perma {
+    padding-bottom: 3rem;
+}
+
+#disqus_thread {
+    min-height: 250px;
+}
+
+legend {
+    font-size: 150%;
+    padding: 0;
+    margin: 0;
+    margin-left: -2rem;
+    color: #333;
+}
+
+#wobsite .post-content {
+    padding-bottom: 1em;
+}
+
+#wobsite .post-content p:first-of-type {
+    margin-top: .5em;
+}
