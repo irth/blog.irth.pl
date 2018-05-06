@@ -3,6 +3,7 @@ build: docs
 .PHONY: build watch serve
 
 docs: $(wildcard posts/*.md) Makefile
+	mv docs/CNAME .
 	blag \
 		-input posts \
 		-output docs \
@@ -10,6 +11,7 @@ docs: $(wildcard posts/*.md) Makefile
 		-disqus irth-blag \
 		-google UA-93070646-1 \
 		-cookies
+	mv CNAME docs/
 
 watch:
 	while true; do \
