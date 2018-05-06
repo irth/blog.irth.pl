@@ -7,10 +7,11 @@ docs: $(wildcard posts/*.md) Makefile
 	blag \
 		-input posts \
 		-output docs \
+		-title "irth's blag" \
 		-baseurl https://blog.irth.pl \
 		-disqus irth-blag \
 		-google UA-93070646-1 \
-		-cookies
+		-cookies 
 	mv CNAME docs/
 
 watch:
