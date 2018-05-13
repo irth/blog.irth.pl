@@ -1,15 +1,21 @@
-build: docs
+.PHONY: build build-dev _build watch serve
 
-.PHONY: build watch serve
+build:
+	make URL=https://blog.irth.pl _build
 
-docs: $(wildcard posts/*.md) Makefile
+build-dev:
+	make URL=http://localhost:8000 _build
+
+_build: $(wildcard posts/*.md) Makefile
 	mv docs/CNAME .
 	blag \
 		-input posts \
 		-output docs \
+		-theme theme \
 		-title "irth's blag" \
-		-baseurl https://blog.irth.pl \
+		-baseurl ${URL} \
 		-disqus irth-blag \
+		-short 700 \
 		-google UA-93070646-1 \
 		-cookies 
 	mv CNAME docs/
@@ -21,4 +27,5 @@ watch:
 	done
 
 serve:
+	make build-dev
 	cd docs && python -m http.server
