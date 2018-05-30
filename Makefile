@@ -7,8 +7,7 @@ build-dev:
 	make URL=http://localhost:8000 _build
 
 _build: $(wildcard posts/*.md) Makefile
-	mv docs/CNAME .
-	blag \
+	TZ=Europe/Warsaw blag \
 		-input posts \
 		-output docs \
 		-theme theme \
@@ -18,7 +17,7 @@ _build: $(wildcard posts/*.md) Makefile
 		-short 700 \
 		-google UA-93070646-1 \
 		-cookies 
-	mv CNAME docs/
+	cp CNAME docs/
 
 watch:
 	while true; do \
