@@ -15,7 +15,6 @@ _build: $(wildcard posts/*.md) Makefile
 		-baseurl ${URL} \
 		-disqus irth-blag \
 		-short 700 \
-		-google UA-93070646-1 \
 		-cookies 
 	cp CNAME docs/
 
