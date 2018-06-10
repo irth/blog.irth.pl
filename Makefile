@@ -14,8 +14,7 @@ _build: $(wildcard posts/*.md) Makefile
 		-title "irth's blag" \
 		-baseurl ${URL} \
 		-disqus irth-blag \
-		-short 700 \
-		-cookies 
+		-short 700 
 	cp CNAME docs/
 
 watch:
