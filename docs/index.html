@@ -9,6 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/grayscale.min.css">
 </head>
 
 <body>
@@ -26,6 +27,51 @@
     </div>
     <div id="body" class="col span_3_of_6 push_2_of_6">
       
+
+<div class="post">
+  <div class="post-title"><a href="post/03-golang-int64-json-string.html">Golang: an int64 that serializes into JSON as a string</a></div>
+  <div class="post-meta">Added on <span>2018-10-24 22:32:01</span>.</div>
+  <div class="post-content">
+    
+    <pre><code class="language-golang">package utils
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+    &quot;strconv&quot;
+)
+
+type ID int64
+
+func (i ID) MarshalJSON() ([]byte, error) {
+    return json.Marshal(fmt.Sprint(i))
+}
+
+func (i *ID) UnmarshalJSON(b []byte) error {
+    var iStr string
+    err := json.Unmarshal(b, &amp;iStr)
+    if err != nil {
+        return err
+    }
+
+    val, err := strconv.ParseInt(iStr, 10, 64)
+    if err != nil {
+        return err
+    }
+
+    *i = ID(val)
+    return nil
+}
+</code></pre>
+
+<p>Because Javascript doesn&rsquo;t support 64 bit integers (everything is stored as a float64), if you&rsquo;re sending them as JSON in a JSON API response to the browser, you probably want to convert them to and from...</p>
+    <div class="read-more-link">
+      <a href="post/03-golang-int64-json-string.html">Read more...</a>
+    </div>
+    
+  </div>
+  <div class="post-meta post-perma"><a href="post/03-golang-int64-json-string.html#disqus_thread">Comments</a>, <a href="post/03-golang-int64-json-string.html">permalink</a>.</div>
+</div>
 
 <div class="post">
   <div class="post-title"><a href="post/02-first-update.html">First update</a></div>
@@ -95,6 +141,9 @@ I am addicted and can&rsquo;t focus when I have Netflix and all of the social me
 
     </div>
   </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/go.min.js"></script>
+  <script>hljs.initHighlighting();</script>
 </body>
 
 </html>
