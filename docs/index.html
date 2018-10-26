@@ -29,6 +29,72 @@
       
 
 <div class="post">
+  <div class="post-title"><a href="post/05-golang-allow-calling-DELETE-handlers-via-POST.html">Golang: allow calling DELETE handlers via POST</a></div>
+  <div class="post-meta">Added on <span>2018-10-27 00:29:38</span>.</div>
+  <div class="post-content">
+    
+    <p>I was designing an API recently and wanted to use all the fancy methods that HTTP provides.</p>
+
+<p>One of those methods was <code>DELETE</code>.</p>
+
+<p>The problem with all these methods is that I can&rsquo;t send them from e.g. a form without javascript.</p>
+
+<p>The solution I used was to add a fallback POST method handler.</p>
+
+<p>To avoid code repetition, I created a little helper function which I wanted to share today:</p>
+
+<pre><code class="language-golang">func FauxDelete(f http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == &quot;POST&quot; {
+			r.Method = &quot;DELETE&quot;
+		}
+
+		f(w, r)
+	}
+}
+
+</code></pre>
+
+<p>This allows me to write a single handler for GET and DELETE (because most of work in both of those handler...</p>
+    <div class="read-more-link">
+      <a href="post/05-golang-allow-calling-DELETE-handlers-via-POST.html">Read more...</a>
+    </div>
+    
+  </div>
+  <div class="post-meta post-perma"><a href="post/05-golang-allow-calling-DELETE-handlers-via-POST.html#disqus_thread">Comments</a>, <a href="post/05-golang-allow-calling-DELETE-handlers-via-POST.html">permalink</a>.</div>
+</div>
+
+<div class="post">
+  <div class="post-title"><a href="post/04-git-diff-untracked-files.html">Git: include untracked and/or staged files in diffs</a></div>
+  <div class="post-meta">Added on <span>2018-10-27 00:08:09</span>.</div>
+  <div class="post-content">
+    
+    <h3>Include untracked files in a diff</h3>
+
+<p><code>git diff</code> by default only takes into account the files that are already tracked. You may want to include untracked files to, e.g. when using <code>git diff --stat</code> to see how many lines are added and deleted.</p>
+
+<p>To make <code>git diff</code> notice the untracked file you need to signal the</p>
+
+<h4>Intent to add</h4>
+
+<pre><code class="language-shell">git add --intent-to-add [file]
+git add -N [file]  # equivalend
+</code></pre>
+
+<p>What <code>git add -N</code> does is adds the <code>[file]</code> path to the index, without its contents (without staging it). Now, when <code>git diff</code> compares the file on disk to the index, all lines show up as newly added.</p>
+
+<h3>Include staged files in a diff</h3>
+
+<p>Another set of files that <code>git diff</code> ignores are the staged files. To change that, run ...</p>
+    <div class="read-more-link">
+      <a href="post/04-git-diff-untracked-files.html">Read more...</a>
+    </div>
+    
+  </div>
+  <div class="post-meta post-perma"><a href="post/04-git-diff-untracked-files.html#disqus_thread">Comments</a>, <a href="post/04-git-diff-untracked-files.html">permalink</a>.</div>
+</div>
+
+<div class="post">
   <div class="post-title"><a href="post/03-golang-int64-json-string.html">Golang: an int64 that serializes into JSON as a string</a></div>
   <div class="post-meta">Added on <span>2018-10-24 22:32:01</span>.</div>
   <div class="post-content">
