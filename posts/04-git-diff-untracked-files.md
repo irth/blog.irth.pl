@@ -2,6 +2,7 @@ title: "Git: include untracked and/or staged files in diffs"
 author: "irth"
 timestamp: 1540591689
 
+
 ### Include untracked files in a diff
 
 `git diff` by default only takes into account the files that are already tracked. You may want to include untracked files to, e.g. when using `git diff --stat` to see how many lines are added and deleted.

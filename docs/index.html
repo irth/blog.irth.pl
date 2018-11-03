@@ -29,6 +29,33 @@
       
 
 <div class="post">
+  <div class="post-title"><a href="post/06-golang-separate-gopath-third-party-personal.html">Golang: separate third party code from your own</a></div>
+  <div class="post-meta">Added on <span>2018-11-03 20:59:31</span>.</div>
+  <div class="post-content">
+    
+    <p>I am using <a href="https://borgbackup.readthedocs.io/en/stable/">BorgBackup</a> to backup my entire home, exluding some folders (cache, node_modules, etc).<br />
+I want to have a backup of all my code (even though I keep it on github and my private <a href="https://gogs.io/">Gogs</a> instance), so I didn&rsquo;t want to exclude the entire GOPATH, but because of all the installed third-party dependencies, it grew pretty big in size.</p>
+
+<h4>Solution:</h4>
+
+<p>Multiple GOPATH entries.</p>
+
+<p>You can use multiple directories as your GOPATH.</p>
+
+<pre><code class="language-shell">$ go env GOPATH
+/home/me/.local/share/go:/home/me/code/go
+</code></pre>
+
+<p>The way this works, <code>go get</code> defaults to the first directory (so, <code>~/.local/share/go</code>), so the third-party code lands there, and for my personal projects, I can manually create the directories in <code>~/code/go</code>. Go <code>im...</code></p></br>
+    <div class="read-more-link">
+      <a href="post/06-golang-separate-gopath-third-party-personal.html">Read more...</a>
+    </div>
+    
+  </div>
+  <div class="post-meta post-perma"><a href="post/06-golang-separate-gopath-third-party-personal.html#disqus_thread">Comments</a>, <a href="post/06-golang-separate-gopath-third-party-personal.html">permalink</a>.</div>
+</div>
+
+<div class="post">
   <div class="post-title"><a href="post/05-golang-allow-calling-DELETE-handlers-via-POST.html">Golang: allow calling DELETE handlers via POST</a></div>
   <div class="post-meta">Added on <span>2018-10-27 00:29:38</span>.</div>
   <div class="post-content">
