@@ -23,5 +23,5 @@ What `git add -N` does is adds the `[file]` path to the index, without its conte
 Another set of files that `git diff` ignores are the staged files. To change that, run it with `--staged`.
 
 ```shell
-git add --staged
+git diff --staged
 ```
